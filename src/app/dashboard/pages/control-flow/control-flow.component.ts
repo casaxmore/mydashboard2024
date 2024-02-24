@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { TitleComponent } from '@share/title/title.component';
 
 type Grade = 'A'|'B'|'C';
 
@@ -8,6 +9,7 @@ type Grade = 'A'|'B'|'C';
   standalone: true,
   imports: [
     CommonModule,
+    TitleComponent
   ],
   templateUrl: './control-flow.component.html',
   styles: `
@@ -21,8 +23,8 @@ export default class ControlFlowComponent {
 
   public showContent = signal(false);
   public grade = signal<Grade>('A');
-A: any;
-B: any;
+  public frameworks = signal(['Angular','Vue','Svelte','Qwik','React']);
+  public frameworks2 = signal([]);
 
   public toggleContent() {
     this.showContent.update(value => !value);
